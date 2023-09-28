@@ -1,0 +1,26 @@
+/* use IBM Plex Sans Thai font */
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Thai:400,500,600,700&display=swap&subset=thai');
+
+body {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+/* discord scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #202225;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2f3136;
+}
+
+::-webkit-scrollbar-track {
+    background: #2f3136;
+    border-radius: 4px;
+}
