@@ -1,91 +1,74 @@
 <template>
- <!--  <v-app-bar app color="transparent" class="text-white" elevation="0">
-    <v-spacer></v-spacer>
-    <v-btn to="/">หน้าหลัก</v-btn>
-    <v-spacer></v-spacer>
-  </v-app-bar> -->
-  <div class="main-section w-100 d-flex m-auto">
-    <div class="ma-auto">
-      <div class="section-title text-center">
-        <!-- <h1 class="title animate__animated animate__zoomInDown">ComCamp 22</h1> -->
-        <v-img :src="logo" height="200" class="mb-8"></v-img>
-        <h2 class="subtitle animate__animated animate__zoomInDown">
-          โครงการค่ายยุวชนคอมพิวเตอร์ครั้งที่ 22
-        </h2>
-        <h3 class="text-white mt-2 callout-showList animate__animated animate__zoomInUp">
-          สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้
-        </h3>
-        <div class="mt-5 animate__animated animate__fadeIn" style="animation-delay: 1.3s">
-          <v-btn size="x-large" color="indigo" appendIcon="mdi-arrow-right-thick"
-            >ลงทะเบียนร่วมโครงการ</v-btn
-          >
-        </div>
-      </div>
-      <vue-particles id="tsparticles" :particlesInit="particlesInit" :options="particlesOptions" />
-    </div>
+  <EventHeader :openRegister="true" />
+  <div class="text-white bg-indigo-darken-3 py-10">
+    <v-container>
+      <!-- <h1 class="text-red text-center mb-10">
+        ชอบ<u>โซตัส</u>ลงค่ายไอที
+        <span class="text-white">เป็นกันเองกับพี่มาที่<u>คอมแคมป์</u></span>
+      </h1> -->
+      <v-row>
+        <v-col md="7" class="my-auto">
+          <h1>"คอมแคมป์" คืออะไร?</h1>
+          <p class="mt-3" style="text-indent: 0.5in; text-align: justify">
+            ค่ายยุวชนคอมพิวเตอร์ หรือ คอมแคมป์ สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้
+            เป็นกิจกรรมที่จัดขึ้นโดยสาขาวิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยแม่โจ้
+            เพื่อเปิดโอกาสให้น้องๆที่สนใจในสาขาวิทยาการคอมพิวเตอร์ได้มีโอกาสเรียนรู้และฝึกฝนทักษะด้านคอมพิวเตอร์อย่างสนุกสนานเป็นเวลา
+            3 วัน 2 คืน โดยในปี พ.ศ. 2567 จัดขึ้นระหว่างวันที่ 2-4 กุมภาพันธ์ ณ มหาวิทยาลัยแม่โจ้
+            จังหวัดเชียงใหม่
+          </p>
+        </v-col>
+        <v-col cols="12" md="5">
+          <v-carousel style="height: 300px" show-arrows="hover" hide-delimiters>
+            <v-carousel-item
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              cover
+            ></v-carousel-item>
+
+            <v-carousel-item
+              src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
+              cover
+            ></v-carousel-item>
+
+            <v-carousel-item
+              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              cover
+            ></v-carousel-item>
+          </v-carousel>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
+  <!-- <div class="bg-yellow-darken-1">
+    <v-container class="py-10">
+      <h1>ต้องเตรียมอะไรบ้าง?</h1>
+      <v-row class="mt-2">
+        <v-col cols="12" sm="4" class="d-flex flex-column py-4 text-center">
+          <v-icon icon="mdi-laptop" class="ma-auto" style="font-size: 100px"></v-icon>
+          <h3>คอมพิวเตอร์โน๊ตบุ๊ค</h3>
+        </v-col>
+        <v-col cols="12" sm="4" class="d-flex flex-column py-4 text-center">
+          <v-icon icon="mdi-cellphone-text" class="ma-auto" style="font-size: 76px"></v-icon>
+          <h3>โทรศัพท์มือถือ (Iphone เท่านั้น)</h3>
+        </v-col>
+        <v-col cols="12" sm="4" class="d-flex flex-column py-4 text-center">
+          <v-icon icon="mdi-note-edit" class="ma-auto" style="font-size: 90px"></v-icon>
+          <h3>โทรศัพท์มือถือ (Iphone เท่านั้น)</h3>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div> -->
+  <SponsoredCC />
 </template>
 <script>
-import { loadFull } from "tsparticles";
-import mainParticle from "@/config/animation";
-import logo from "@/assets/logo.png";
-
+import EventHeader from "@/components/EventHeader.vue";
+import EndEventHeader from "@/components/EndEventHeader.vue";
+import SponsoredCC from "@/components/SponsoredCC.vue";
 export default {
-  setup() {
-    const particlesInit = async (engine) => {
-      //await loadFull(engine);
-      await loadFull(engine);
-    };
-    return {
-      particlesInit
-    };
+  components: {
+    EventHeader,
+    EndEventHeader,
+    SponsoredCC
   },
-  data() {
-    return {
-      particlesOptions: mainParticle,
-      logo
-    };
-  }
 };
 </script>
-<style scoped>
-.main-section {
-  height: 100dvh;
-  /* background: rgb(255, 255, 255);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(186, 235, 237, 1) 80%,
-    rgba(163, 228, 231, 1) 100%
-  ); */
-  background: #311e70;
-  background: linear-gradient(
-    109.6deg,
-    rgb(41, 125, 182) 3.6%,
-    rgb(77, 58, 151) 51%,
-    rgb(103, 55, 115) 92.9%
-  );
-}
-
-.section-title {
-  position: relative;
-  z-index: 2;
-}
-.title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 0 10px #fff;
-}
-
-.subtitle {
-  font-size: 2.2rem;
-  font-weight: 500;
-  color: #fff;
-  text-shadow: 0 0 10px #fff;
-}
-
-.callout-showList {
-  animation-delay: 0.4s;
-}
-</style>
+<style></style>

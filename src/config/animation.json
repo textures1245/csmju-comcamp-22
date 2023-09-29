@@ -13,8 +13,7 @@
   "defaultThemes": {},
   "delay": 0,
   "fullScreen": {
-    "enable": true,
-    "zIndex": 1
+    "enable": false
   },
   "detectRetina": true,
   "duration": 0,
@@ -42,7 +41,7 @@
         }
       },
       "resize": {
-        "delay": 0.5,
+        "delay": 0.1,
         "enable": true
       }
     },

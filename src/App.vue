@@ -1,7 +1,5 @@
 <template>
-  <v-layout>
-    <RouterView />
-  </v-layout>
+  <RouterView />
 </template>
 <script>
 import { RouterView } from "vue-router";
